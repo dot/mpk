@@ -43,6 +43,7 @@ public:
             msgpack::sbuffer sbuf;
             msgpack::pack(sbuf, r);
 
+            length = sbuf.size();
             socket().sendBytes(&length, sizeof(length));
             socket().sendBytes(sbuf.data(), length);
 
